@@ -35,6 +35,7 @@ h1{
 }
 
 header {
+    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
     color: white;
@@ -42,6 +43,7 @@ header {
 }
 
 main {
+    margin-top: 2rem;
     flex: 1;
     padding: 1rem;
     display: flex;
