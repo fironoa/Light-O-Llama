@@ -28,7 +28,7 @@ Access your application:
 
 Once the container is running, you can access your app in the browser at:
 
-http://localhost:8080
+http://localhost:9500
 
 ### Stop the container:
 
