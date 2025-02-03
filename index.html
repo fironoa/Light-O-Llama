@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama UI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="custom-select-wrapper">
+            <select id="model-select" class="custom-select">
+            </select>
+        </div>
+
+        <h1>Light-O-Llama</h1>
+        <div class="nouse"></div>
+    </header>
+    <main>
+        <div class="app-container">
+
+            <div class="output-container">
+                <div class="messages-wrapper" id="output"></div>
+                <div class="overlay"></div>
+            </div>
+            <div class="input-container">
+                <textarea class="textarea-input" id="input" placeholder="Type your message here..."></textarea>
+                <button id="sendBtn">Send</button>
+            </div>
+            <span id="clearBtn">Clear Prompt</span>
+        </div>
+    </main>
+    <footer>
+        created by gobartsdev.com
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

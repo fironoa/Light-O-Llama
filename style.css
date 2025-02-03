@@ -1,0 +1,237 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #525252;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #414553;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #101720;
+}
+
+h1{
+    font-weight: 300;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 1rem;
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nouse{
+    width: 200px;
+}
+.input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.textarea-input {
+    display: flex;
+    flex: 1;
+    padding-top: 14px;
+    padding-left: 14px;
+    border: 1px solid #ccc;
+    background-color: #101720;
+    border-radius: 4px;
+    height: 50px;
+    color: #56fff1;
+    font-size: 16px;
+    resize: vertical;
+}
+
+
+button, select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    background-color: #101720;
+    color: white;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+button:hover {
+    background-color: #1D3557;
+}
+
+.output-container {
+    position: relative;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 4px;
+    overflow-y: auto;
+    min-height: 50vh;
+    display: flex;
+    padding: 1rem;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    color: wheat;
+    font-size: 40px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #101720 100%);
+    pointer-events: none;
+}
+
+.messages-wrapper {
+    position: relative;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 4px;
+    overflow-y: auto;
+    min-height: 50vh;
+    display: flex;
+    padding: 1rem;
+    flex: 1;
+}
+
+.user-message,
+.bot-message {
+    border: 1px solid #ccc;
+    background-color: #101720;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 14px;
+    resize: none;
+    min-height: 50px;
+    flex-shrink: 0;
+    overflow: hidden;
+    min-height: 50px;
+    word-wrap: break-word;
+}
+
+.user-message {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 0px;
+    align-self: flex-end;
+    color: #f4f4f4;
+    width: 60%;
+}
+
+.bot-message {
+    color: #56fff1;
+    margin-right: 20px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 0px;
+}
+
+footer {
+    
+    border-top: 1px solid #686868;
+    text-align: center;
+    padding: 1rem;
+    color: rgb(99, 99, 99);
+}
+
+.app-container {
+    width: 80vw;
+    max-width:1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 80vh;
+}
+
+#clearBtn {
+    color: #f4f4f4;
+    border: 1px solid #acaaaa;
+    width: 120px;
+    text-align: center;
+    font-size: 14px;
+    height: auto;
+    padding: 3px;
+    cursor: pointer;
+    margin-top: -18px;
+}
+
+#clearBtn:hover {
+    border: 1px solid #ccc;
+}
+
+
+.custom-select-wrapper {
+    position: relative;
+    width: 180px;
+  }
+  
+  .custom-select {
+    width: 100%;
+    font-size: 14px;
+    color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .custom-select-wrapper::after {
+    content: '›';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 18px;
+    color: #f4f4f4;
+    pointer-events: none;
+  }
+  
+  .custom-select:focus {
+    border-color: #a8a8a870;
+    outline: none;
+  }
+  
+  .custom-select:hover {
+    border-color: #888;
+  }
+  
+  .custom-select option {
+    padding: 10px;
+  }
+  
+  .custom-select option:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
