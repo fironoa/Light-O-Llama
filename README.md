@@ -58,3 +58,7 @@ You can find the container ID by running:
 ## Contributing
 Contributions are welcome!
 Feel free to fork the repository and submit a pull request with your changes.
+<br>
+### Some of the features planned.
+1. Convert the MarkDown response to html
+2. Session based chat history
