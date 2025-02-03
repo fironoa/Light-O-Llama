@@ -93,8 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (done) break;
 
                 const json = JSON.parse(decoder.decode(value, { stream: true }));
-                console.log("Reached here")
-                console.log(json)
+
                 if (json.message) {
                     if (!thinking) {
                         botMessage.value += json.message.content;
