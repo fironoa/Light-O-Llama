@@ -1,11 +1,27 @@
 # Light-O-Llama
 A minimal and efficient web-based user interface, built using pure HTML, CSS, and JavaScript. Designed to provide a lightweight, fast, and seamless experience with no external dependencies, perfect for quick interactions and local use.
+<br><br>
+## Using Node.js with http-server
+Install http-server globally via npm:
+```npm install -g http-server```
+### Navigate to the folder containing your static files:
+cd /path/to/your/static-files
+
+### Run the server:
+```http-server```
+
+By default, this will serve your files at 
+http://localhost:8080.
 
 
-## Steps to Build and Run the Docker Image
+<br><br>
+
+
+
+## Using Docker to build and run image
 ### Clone the repository:
 
-```git clone https://github.com/fironoa/Light-O-Llama```
+```git clone https://github.com/fironoa/Light-O-Llama```<br><br>
 ```cd Light-O-Llama```
 
 ### Build the Docker image:
@@ -38,3 +54,7 @@ If you want to stop the container, run:
 You can find the container ID by running:
 
 ```docker ps```
+<br><br>
+## Contributing
+Contributions are welcome!
+Feel free to fork the repository and submit a pull request with your changes.
