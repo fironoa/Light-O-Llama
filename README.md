@@ -12,14 +12,14 @@ A minimal and efficient web-based user interface, built using pure HTML, CSS, an
 
 In the root directory of your project (where the Dockerfile is located), run the following command to build the Docker image:
 
-```docker build -t image-name .```
+```docker build -t light-o-llama .```
 Replace your-image-name with the name you'd like for the image.
 
 ### Run the Docker container:
 
 After the build completes, run the container using the following command:
 
-```docker run -d -p 9500:80 image-name```
+```docker run -d -p 9500:80 light-o-llama```
 This command will:
 
 Run the container in detached mode (-d).
