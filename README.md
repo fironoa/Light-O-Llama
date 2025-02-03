@@ -5,8 +5,8 @@ A minimal and efficient web-based user interface, built using pure HTML, CSS, an
 ## Steps to Build and Run the Docker Image
 ### Clone the repository:
 
-```git clone https://github.com/your-username/your-repository.git```
-```cd your-repository```
+```git clone https://github.com/fironoa/Light-O-Llama```
+```cd Light-O-Llama```
 
 ### Build the Docker image:
 
