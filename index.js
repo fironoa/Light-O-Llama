@@ -2,6 +2,7 @@ let selectedModel;
 let maxLines = 10;
 const lineHeight = 20;
 const messageArray = []; //in memory chat history --> to be upgraded to a session based one
+const conversation = [];
 const OLLAMA_BASE_URL = "http://localhost:11434"
 
 async function fetchModels(selectElements){
@@ -51,7 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sendBtn.addEventListener("click", async () => {
         const inputEvent = new Event('input');
         isAtBottom = true
-        const userMessageElement = createADialogue(textArea.value, true);
+        const userMessage = document.getElementById('input').value;
+        const userMessageElement = createADialogue(userMessage, true);
 
         // Append user message
         outputDiv.appendChild(userMessageElement);
@@ -60,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         messageArray.push({
             role: "user",
-            content: document.getElementById('input').value
+            content: userMessage
         });
 
         // Create bot message and append it
@@ -86,8 +88,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const reader = response.body.getReader();
             let decoder = new TextDecoder();
-            botMessage.value = ""; // Clear the initial text
+            botMessage.innerText = ""; // Clear the initial text
             let thinking = false;
+
+            let mdResponse = {
+                _value: "",
+
+                get value() {
+                    return this._value;
+                },
+            
+                set value(newValue) {
+                    this._value = newValue;
+                    render(botMessage, this._value);
+                }
+            };
+
+
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
@@ -96,15 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (json.message) {
                     if (!thinking) {
-                        botMessage.value += json.message.content;
+                        //botMessage.value += json.message.content;
+                        mdResponse.value = mdResponse.value + json.message.content;
                     }
                     if (json.message.content.startsWith("<think>") && selectedModel.includes('deepseek')) { //deepseek has a think clause
                         thinking = true;
-                        botMessage.value = "thinking...";
+                        botMessage.innerText = "thinking...";
                     }
                     if (json.message.content.startsWith("</think>") && selectedModel.includes('deepseek')) { 
                         thinking = false;
-                        botMessage.value = "";
+                        botMessage.innerText = "";
                     }
 
                 }
@@ -120,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             messageArray.push({
                 role: "assistance",
-                content: botMessage.value
+                content: mdResponse.value
             });
 
         } catch (error) {
@@ -148,9 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createADialogue = (message, isSelf) => {
 
-        const divElement = document.createElement('textarea');
+        const divElement = document.createElement('div');
         divElement.classList.add(`${isSelf ? "user" : "bot"}-message`);
-        divElement.value = message;
+        divElement.innerText = message;
         divElement.readOnly = true;
         
         divElement.style.height = 'auto';
@@ -191,6 +209,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const render = (botMessageDiv, message) => {
+
+        const renderer = new marked.Renderer();
+
+        renderer.code = function (code) {
+            console.log(code)
+            return `<div class="code-block">
+                    <div class="code-header">${code.lang || "Code"}</div>
+                    <pre><code class="language-${code.lang}">${code.text}</code></pre>
+                </div>`;
+        };
+        
+        marked.use({ renderer });
+        const html = marked.parse(message);
+        botMessageDiv.innerHTML = html;
+    }
     
     //Custom event to triger when there is change in size of the window
     window.addEventListener('resize', () => {

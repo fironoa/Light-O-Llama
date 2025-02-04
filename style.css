@@ -30,7 +30,7 @@ body {
     background-color: #101720;
 }
 
-h1{
+h1 {
     font-weight: 300;
 }
 
@@ -51,9 +51,10 @@ main {
     align-items: center;
 }
 
-.nouse{
+.nouse {
     width: 200px;
 }
+
 .input-container {
     display: flex;
     width: 100%;
@@ -75,7 +76,8 @@ main {
 }
 
 
-button, select {
+button,
+select {
     padding: 0.5rem 1rem;
     border: 1px solid #ccc;
     background-color: #101720;
@@ -129,19 +131,25 @@ button:hover {
 
 .user-message,
 .bot-message {
+    line-height: 1.5rem;
     border: 1px solid #ccc;
     background-color: #101720;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 30px;
     padding: 1rem;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 16px;
     resize: none;
     min-height: 50px;
     flex-shrink: 0;
     overflow: hidden;
     min-height: 50px;
     word-wrap: break-word;
+}
+
+.bot-message ul, .bot-message ol{
+    margin-left: 1.5rem;
 }
 
 .user-message {
@@ -160,7 +168,7 @@ button:hover {
 }
 
 footer {
-    
+
     border-top: 1px solid #686868;
     text-align: center;
     padding: 1rem;
@@ -169,7 +177,7 @@ footer {
 
 .app-container {
     width: 80vw;
-    max-width:1000px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -196,9 +204,9 @@ footer {
 .custom-select-wrapper {
     position: relative;
     width: 180px;
-  }
-  
-  .custom-select {
+}
+
+.custom-select {
     width: 100%;
     font-size: 14px;
     color: #f4f4f4;
@@ -207,9 +215,9 @@ footer {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-  }
-  
-  .custom-select-wrapper::after {
+}
+
+.custom-select-wrapper::after {
     content: '›';
     position: absolute;
     right: 10px;
@@ -218,22 +226,45 @@ footer {
     font-size: 18px;
     color: #f4f4f4;
     pointer-events: none;
-  }
-  
-  .custom-select:focus {
+}
+
+.custom-select:focus {
     border-color: #a8a8a870;
     outline: none;
-  }
-  
-  .custom-select:hover {
+}
+
+.custom-select:hover {
     border-color: #888;
-  }
-  
-  .custom-select option {
+}
+
+.custom-select option {
     padding: 10px;
-  }
-  
-  .custom-select option:hover {
+}
+
+.custom-select option:hover {
     background-color: #f1f1f1;
     cursor: pointer;
-  }
+}
+
+
+.code-block {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.code-header {
+    background: #22262e;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+pre {
+    background: #2d323d;
+    padding: 10px;
+    color: #9dff7f;
+    border-radius: 5px;
+    overflow-x: scroll;
+}
