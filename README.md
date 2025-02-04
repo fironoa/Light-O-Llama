@@ -29,7 +29,6 @@ http://localhost:8080.
 In the root directory of your project (where the Dockerfile is located), run the following command to build the Docker image:
 
 ```docker build -t light-o-llama .```
-Replace your-image-name with the name you'd like for the image.
 
 ### Run the Docker container:
 
